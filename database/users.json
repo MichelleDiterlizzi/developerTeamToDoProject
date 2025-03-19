@@ -4,5 +4,17 @@
         "name": "Sara Garcia",
         "email": "sara@gmail.com",
         "password": "$2y$10$OhiUCywz\/7jP0qqpMQVXgO9DAoA5r9poMmgyO.shZmAYO.yOjyR.u"
+    },
+    {
+        "name": "andrea castillo",
+        "email": "sara@gmail.com",
+        "password": "$2y$10$oSF7lGxCjxxypD65HkM8.ObLGmgmao.HnQLp4X27SeR\/cp1tLNWXa",
+        "id": "67daff3417ee1"
+    },
+    {
+        "name": "fabio russo",
+        "email": "sara@gmail.com",
+        "password": "$2y$10$4XcD3AXrwg5ZHjNOgFMJH.FCVVCw73ssNJIuy4QuCMbtgB2510VI6",
+        "id": "67db0182cf745"
     }
 ]
