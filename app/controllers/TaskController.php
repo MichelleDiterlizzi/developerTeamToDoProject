@@ -32,4 +32,21 @@ class TaskController extends Controller{
         $this->view->doneTasks = $doneTasks;
     }
 
+    public function addAction(){
+        if ($this->getRequest()->isPost()) {
+            $data = array(
+                'title' => $this->_getParam('new_task'),
+                'user_id' => $_SESSION['user']->id,
+                'user_name' => $_SESSION['user']->name,
+                'status' => 'pending' 
+            );
+            
+            $taskId = $this->_taskModel->save($data);
+                
+            header('Location: ' . $this->_baseUrl() . '/tasks');
+                exit;
+            
+        }
+    }
+
 }

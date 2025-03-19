@@ -24,4 +24,23 @@ class Task {
         });
     }
 
+    protected function _saveData()
+    {
+        file_put_contents(
+            ROOT_PATH . '/database/' . $this->_jsonFile,
+            json_encode($this->_data, JSON_PRETTY_PRINT)
+        );
+    }
+    
+    public function save($data = array()){
+
+        $data['id'] = uniqid();
+            
+        $this->_data[] = $data;
+            
+        $this->_saveData();
+        return $data['id'];
+        
+    }
+
 }

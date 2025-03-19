@@ -12,28 +12,37 @@
             $pendingTasks = $this->pendingTasks; ?>
             <?php if (isset($pendingTasks) && count($pendingTasks) > 0): ?>
                 <?php foreach ($pendingTasks as $task): ?>
-                    <div class="task-item bg-white p-2 rounded shadow-md mb-2" >
+                    <div class="task-item bg-white p-2 rounded shadow-md mb-2">
                         <h4 class="font-medium text-gray-600"><?php echo $task['title']; ?></h4>
                         <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
-                        
+                        <div class="flex items-center justify-center w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
+                        <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>&status=in_progress" class="text-white m-2" >START</a>
+                        </div>
                     </div>  
                 <?php endforeach; ?>
             <?php else: ?>
                 <p class="text-gray-600 text-sm font-bold">No hay tareas pendientes</p>
             <?php endif; ?>
+
+        <form action="<?php echo $this->baseUrl(); ?>/task/add" method="post"  class="shadow-md mt-4 mb-4 rounded-lg h-[80px] p-2 bg-rose-100">
+                <input type="text" required name="new_task" placeholder="Introduzca una nueva tarea..." class="w-full text-xs bg-rose-100">
+                <button type="submit" class="text-xs w-[40%] h-[40%] bg-rose-900 text-white p-2 rounded-lg hover:bg-blue-600 mt-4 flex items-center justify-center">ADD</button>
+        </form>
         </div>
 
-
+        
         <div class="flex flex-col w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px]">
             <h3 class="mb-3 font-bold text-gray-900 text-left">In progress</h3>
             <?php 
                 $inProgressTasks = $this->inProgressTasks; ?>
             <?php if (isset($inProgressTasks) && count($inProgressTasks) > 0): ?>
                 <?php foreach ($inProgressTasks as $task): ?>
-                    <div class="task-item bg-white p-2 rounded shadow-md mb-2" >
+                    <div class="task-item bg-white p-2 rounded shadow-md mb-2">
                         <h4 class="font-medium text-gray-600"><?php echo $task['title']; ?></h4>
                         <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
-                        
+                        <div class="flex items-center justify-center w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
+                        <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>&status=done" class="text-white m-2" >DONE</a>
+                        </div>
                     </div>   
                 <?php endforeach; ?>
             <?php else: ?>
@@ -49,9 +58,10 @@
                 $doneTasks = $this->doneTasks; ?>
             <?php if (isset($doneTasks) && count($doneTasks) > 0): ?>
                 <?php foreach ($doneTasks as $task): ?>
-                    <div class="task-item bg-white p-2 rounded shadow-md mb-2" >
+                    <div class="task-item bg-white p-2 rounded shadow-md mb-2">
                         <h4 class="font-medium text-gray-600"><?php echo $task['title']; ?></h4>
                         <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
+                        
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
