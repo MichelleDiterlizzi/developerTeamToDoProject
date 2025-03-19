@@ -17,4 +17,11 @@ class Task {
         }
     }
 
+    public function fetchByStatus($status)
+    {
+        return array_filter($this->_data, function($task) use ($status) {
+            return $task['status'] === $status;
+        });
+    }
+
 }

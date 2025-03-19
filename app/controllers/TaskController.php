@@ -20,6 +20,16 @@ class TaskController extends Controller{
     
 
     public function indexAction(){
+        $taskModel = new Task();
+        
+        $pendingTasks = $taskModel->fetchByStatus("pending");
+    
+        $inProgressTasks = $taskModel->fetchByStatus("in_progress");
+        $doneTasks = $taskModel->fetchByStatus("done");
+    
+        $this->view->pendingTasks = $pendingTasks;
+        $this->view->inProgressTasks = $inProgressTasks;
+        $this->view->doneTasks = $doneTasks;
     }
 
 }
