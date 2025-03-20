@@ -76,4 +76,14 @@ class TaskController extends Controller{
     exit;
     }
 
+    public function deleteAction(){
+
+        $id = $this->_getParam('id');
+        
+        $result = $this->_taskModel->delete($id);
+
+        header('Location: ' . $this->_baseUrl() . '/tasks');
+        exit;
+    }
+
 }

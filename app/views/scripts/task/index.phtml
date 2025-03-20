@@ -63,7 +63,7 @@
                         <h4 class="font-medium text-gray-600"><?php echo htmlspecialchars($task['title']); ?></h4>
                         <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
                         <div class="flex items-center justify-center w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
-                        <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>" class="text-white m-2" >CANCEL</a>
+                        <a href="<?php echo $this->baseUrl(); ?>/task/delete?id=<?php echo $task['id']; ?>" class="text-white m-2">CANCEL</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

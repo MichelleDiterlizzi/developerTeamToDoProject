@@ -66,4 +66,21 @@ class Task {
         
     }
 
+    public function delete($id)
+    {
+        foreach ($this->_data as $key => $item) {
+            if ($item['id'] == $id) {
+
+                unset($this->_data[$key]);
+                
+                $this->_data = array_values($this->_data);
+                
+                $this->_saveData();
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
 }
