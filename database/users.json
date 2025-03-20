@@ -16,5 +16,17 @@
         "email": "sara@gmail.com",
         "password": "$2y$10$4XcD3AXrwg5ZHjNOgFMJH.FCVVCw73ssNJIuy4QuCMbtgB2510VI6",
         "id": "67db0182cf745"
+    },
+    {
+        "name": "andrea castillo",
+        "email": "andrea@gmail.com",
+        "password": "$2y$10$4BquVx2hwVP4oxyBwKTwY.EH18hW4KwgpEXijErIEpHkqpJ0wzNxK",
+        "id": "67dbefa961097"
+    },
+    {
+        "name": "fabio russo",
+        "email": "fabio@gmail.com",
+        "password": "$2y$10$OimCG9rYVUAILH5.4Y6rsuSgXpBkq0XBbmBLBRIboVEPlXrZ9Kn6y",
+        "id": "67dbefb80d3aa"
     }
 ]

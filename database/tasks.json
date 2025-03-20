@@ -3,44 +3,39 @@
         "title": "Hacer la compra",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": null,
-        "id": "67daea1e40eef",
-        "created_at": "2025-03-19 17:04:05",
-        "finished_at": "2025-03-19 17:04:09"
+        "status": "pending",
+        "id": "67dbef8c524e9"
     },
     {
         "title": "Llamar el doctor",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": null,
-        "id": "67db0bbd98452",
-        "created_at": "2025-03-19 20:00:35",
-        "finished_at": "2025-03-20 10:01:01"
-    },
-    {
-        "title": "Hacer la compra",
-        "user_id": "67c2f5be94e9a",
-        "user_name": "Sara Garcia",
-        "status": "in_progress",
-        "id": "67daea1e40eef",
-        "created_at": "2025-03-19 17:04:05",
-        "finished_at": "2025-03-19 17:04:09"
+        "status": "pending",
+        "id": "67dbef8f7c699"
     },
     {
         "title": "Aprender a programar",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": null,
-        "id": "67db150cbdea5",
-        "created_at": "2025-03-19 20:03:42",
-        "finished_at": "2025-03-19 20:03:44"
+        "status": "in_progress",
+        "id": "67dbef9363585",
+        "created_at": "2025-03-20 11:36:06"
     },
     {
-        "title": "Llamar el doctor",
-        "user_id": "67c2f5be94e9a",
-        "user_name": "Sara Garcia",
+        "title": "Terminar el Sprint3",
+        "user_id": "67dbefb80d3aa",
+        "user_name": "fabio russo",
         "status": "in_progress",
-        "id": "67dbd9519a9aa",
-        "created_at": "2025-03-20 10:01:07"
+        "id": "67dbefcd43561",
+        "created_at": "2025-03-20 11:37:07"
+    },
+    {
+        "title": "Regar las plantas",
+        "user_id": "67dbefa961097",
+        "user_name": "andrea castillo",
+        "status": "done",
+        "id": "67dbefeaae7df",
+        "created_at": "2025-03-20 11:37:32",
+        "finished_at": "2025-03-20 11:37:36"
     }
 ]

@@ -10,7 +10,7 @@ $routes = array(
     '/tasks' => 'task#index', 
     '/task/findTasks' => 'task#findTasks',
     '/task/add' => 'task#add',
-    '/task/delete/:id' => 'task#delete',
+    '/task/delete' => 'task#delete',
     '/task/move' => 'task#move', 
 
     '/' => 'auth#login'

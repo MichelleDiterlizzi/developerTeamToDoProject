@@ -28,7 +28,7 @@
             
                         <div class="mt-6 flex gap-4">
                             <div class="flex items-center justify-center w-[40%] bg-rose-900 rounded-lg overflow-hidden hover:bg-blue-600">
-                                <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>" class="text-white m-2 text-xs" >CANCEL</a>
+                                <a href="<?php echo $this->baseUrl(); ?>/task/delete?id=<?php echo $task['id']; ?>" class="text-white m-2 text-xs" >DELETE</a>
                             </div>
                 
                             <?php if ($this->task['status'] === 'pending'): ?>

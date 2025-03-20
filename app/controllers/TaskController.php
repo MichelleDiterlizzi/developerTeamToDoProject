@@ -91,6 +91,29 @@ class TaskController extends Controller{
             
             $this->view->task = $task;
         }
+
+    }
+
+    public function deleteAction(){
+
+        $id = $this->_getParam('id');
+        
+        $result = $this->_taskModel->delete($id);
+
+        header('Location: ' . $this->_baseUrl() . '/tasks');
+        exit;
+    }
+
+    public function findTasksAction(){
+
+        $taskTitle = isset($_GET['taskTitle']) ? $_GET['taskTitle'] : null;
+        
+        $taskModel = new Task();
+        $tasks = $taskModel->fetchByTaskTitle($taskTitle);
+            
+        $this->view->taskTitle = $taskTitle;
+        $this->view->tasks = $tasks;
+        
     }
 
 }
