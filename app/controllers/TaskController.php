@@ -49,4 +49,31 @@ class TaskController extends Controller{
         }
     }
 
+    public function moveAction(){
+        
+    $id = $this->_getParam('id');
+    $status = $this->_getParam('status');
+
+    $task = $this->_taskModel->fetchOne($id);
+    
+    $data = array(
+        'id' => $id,
+        'status' => $status
+    );
+    
+    $currentTime = date('Y-m-d H:i:s');
+    
+    if ($status === 'in_progress' && $task['status'] === 'pending') {
+        $data['created_at'] = $currentTime;
+    }
+    else if ($status === 'done' && $task['status'] === 'in_progress') {
+        $data['finished_at'] = $currentTime;
+    }
+    
+    $result = $this->_taskModel->save($data);
+    
+    header('Location: ' . $this->_baseUrl() . '/tasks');
+    exit;
+    }
+
 }

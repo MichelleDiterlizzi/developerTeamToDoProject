@@ -12,7 +12,35 @@
         "title": "Llamar el doctor",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": "pending",
-        "id": "67db0bbd98452"
+        "status": "done",
+        "id": "67db0bbd98452",
+        "created_at": "2025-03-19 20:00:35",
+        "finished_at": "2025-03-20 10:01:01"
+    },
+    {
+        "title": "Hacer la compra",
+        "user_id": "67c2f5be94e9a",
+        "user_name": "Sara Garcia",
+        "status": "in_progress",
+        "id": "67daea1e40eef",
+        "created_at": "2025-03-19 17:04:05",
+        "finished_at": "2025-03-19 17:04:09"
+    },
+    {
+        "title": "Aprender a programar",
+        "user_id": "67c2f5be94e9a",
+        "user_name": "Sara Garcia",
+        "status": "done",
+        "id": "67db150cbdea5",
+        "created_at": "2025-03-19 20:03:42",
+        "finished_at": "2025-03-19 20:03:44"
+    },
+    {
+        "title": "Llamar el doctor",
+        "user_id": "67c2f5be94e9a",
+        "user_name": "Sara Garcia",
+        "status": "in_progress",
+        "id": "67dbd9519a9aa",
+        "created_at": "2025-03-20 10:01:07"
     }
 ]
