@@ -76,4 +76,21 @@ class TaskController extends Controller{
     exit;
     }
 
+    public function showAction(){
+
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . $this->_baseUrl() . '/login');
+            exit;
+        }
+        
+        $taskId = isset($_GET['id']) ? $_GET['id'] : null;
+        
+        if ($taskId) {
+            $taskModel = new Task();
+            $task = $taskModel->fetchOne($taskId);
+            
+            $this->view->task = $task;
+        }
+    }
+
 }

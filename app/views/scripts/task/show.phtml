@@ -1,1 +1,54 @@
-<h1>SHOW TASK</h1>
+<div class="min-h-screen bg-cover bg-center bg-violet-200 rounded-lg overflow-hidden">
+    <header class="bg-rose-900 w-full h-10 p-2 flex flex-row justify-between">
+        <h1 class="text-xl font-bold text-white text-left w-[60%]">Task Manager</h1>
+        <form action="" class="w-[25%] h-full">
+            
+    <input type="text" required name="new_task" placeholder="Introduzca un usuario" class="border text-gray-900 placeholder-gray-500 bg-white p-2 rounded-md w-full m-auto h-[100%]">
+    </form>
+    </header>
+    
+    <main class="g-5 flex flex-row justify-center">
+        <div id="pending-column" class="flex flex-col w-[60%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
+            <h3 class="mb-3 font-bold text-gray-900 text-left">Task Details.</h3>
+
+            <?php
+            $task = $this->task;
+            if (isset($task)): ?>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold"><?php echo htmlspecialchars($this->task['title']); ?></h2>
+                    <p class="text-sm text-gray-600 mt-2">Created by: <?php echo htmlspecialchars($this->task['user_name']); ?></p>
+                    <p class="text-sm text-gray-600">Status: <?php echo htmlspecialchars($this->task['status']); ?></p>
+                    <?php if (!empty($this->task['created_at'])): ?>
+                    <p class="text-sm text-gray-600">Created at: <?php echo htmlspecialchars($this->task['created_at']); ?></p>
+                    <?php endif; ?>
+
+                    <?php if (!empty($this->task['finished_at'])): ?>
+                    <p class="text-sm text-gray-600">Finished at: <?php echo htmlspecialchars($this->task['finished_at']); ?></p>
+                    <?php endif; ?>
+            
+                        <div class="mt-6 flex gap-4">
+                            <div class="flex items-center justify-center w-[40%] bg-rose-900 rounded-lg overflow-hidden hover:bg-blue-600">
+                                <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>" class="text-white m-2 text-xs" >CANCEL</a>
+                            </div>
+                
+                            <?php if ($this->task['status'] === 'pending'): ?>
+                                <div class="flex items-center justify-center w-[40%] bg-rose-900 rounded-lg overflow-hidden hover:bg-blue-600">
+                                    <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $this->task['id']; ?>&status=in_progress" class="text-white p-2 block w-full text-center text-xs">Start Task</a>
+                                </div>
+                                <?php elseif ($this->task['status'] === 'in_progress'): ?>
+                                <div class="flex items-center justify-center w-[40%] bg-rose-900 rounded-lg overflow-hidden hover:bg-blue-600">
+                                    <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $this->task['id']; ?>&status=done" class="text-white p-2 block w-full text-center text-xs">DONE</a>
+                                </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                </div>
+        </div>
+        
+    </main>
+
+    <div class="bg-rose-900 w-[10%] rounded-lg m-4 overflow-hidden flex items-center justify-center mt-10 hover:bg-blue-600">
+            <a href="<?php echo $this->baseUrl(); ?>/tasks" class="text-white m-2 text-xs" ><-Home</a>
+    </div>
+
+</div>
