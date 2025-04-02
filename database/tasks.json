@@ -1,17 +1,11 @@
 [
     {
-        "title": "Hacer la compra",
-        "user_id": "67c2f5be94e9a",
-        "user_name": "Sara Garcia",
-        "status": "pending",
-        "id": "67dbef8c524e9"
-    },
-    {
         "title": "Llamar el doctor",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": "pending",
-        "id": "67dbef8f7c699"
+        "status": "in_progress",
+        "id": "67dbef8f7c699",
+        "created_at": "2025-03-21 11:05:37"
     },
     {
         "title": "Aprender a programar",
@@ -37,5 +31,36 @@
         "id": "67dbefeaae7df",
         "created_at": "2025-03-20 11:37:32",
         "finished_at": "2025-03-20 11:37:36"
+    },
+    {
+        "title": "Sacarme el carnet",
+        "user_id": "67dbefa961097",
+        "user_name": "andrea castillo",
+        "status": "done",
+        "id": "67dbf2e413d51",
+        "created_at": "2025-03-20 11:50:15",
+        "finished_at": "2025-03-20 11:50:19"
+    },
+    {
+        "title": "Hacer la compra",
+        "user_id": "67dbefa961097",
+        "user_name": "andrea castillo",
+        "status": "in_progress",
+        "id": "67dd3a04a4b67",
+        "created_at": "2025-03-21 11:07:00"
+    },
+    {
+        "title": "Regar las plantas",
+        "user_id": "67dbefa961097",
+        "user_name": "andrea castillo",
+        "status": "pending",
+        "id": "67ebe337d5e38"
+    },
+    {
+        "title": "Sacarme el carnet",
+        "user_id": "67c2f5be94e9a",
+        "user_name": "Sara Garcia",
+        "status": "pending",
+        "id": "67ecf8460e966"
     }
 ]

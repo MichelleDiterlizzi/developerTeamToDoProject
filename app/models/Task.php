@@ -32,32 +32,16 @@ class Task {
         );
     }
     
-    public function save($data = array()){
-        if (isset($data['id'])) {
-            foreach ($this->_data as $key => $item) {
-                if ($item['id'] == $data['id']) {
-                    foreach ($data as $prop => $value) {
-                        $this->_data[$key][$prop] = $value;
-                    }
-                    
-                    $this->_saveData();
-                    return $data['id'];
-                }
-            }
-            return false;
-        } 
-        else {
+    public function save($data){
+
             $data['id'] = uniqid();
-            
             $this->_data[] = $data;
-            
             $this->_saveData();
             return $data['id'];
-        }
     }
 
-    public function fetchOne($id)
-    {
+    public function fetchOne($id){
+
         foreach ($this->_data as $item) {
             if ($item['id'] == $id) { 
                 return $item;

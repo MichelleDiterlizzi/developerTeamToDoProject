@@ -7,25 +7,15 @@ class TaskController extends Controller{
     {
         parent::init();
         $this->_taskModel = new Task();
-        
-        // Verificar si el usuario está logueado
-        if (!isset($_SESSION['user'])) {
-            header('Location: ' . $this->_baseUrl() . '/login');
-            exit;
-        }
-        
-        // Pasar datos del usuario a la vista
-        $this->view->user = $_SESSION['user'];
     }
     
 
     public function indexAction(){
-        $taskModel = new Task();
-        
-        $pendingTasks = $taskModel->fetchByStatus("pending");
     
-        $inProgressTasks = $taskModel->fetchByStatus("in_progress");
-        $doneTasks = $taskModel->fetchByStatus("done");
+        $pendingTasks = $this->_taskModel->fetchByStatus("pending");
+    
+        $inProgressTasks = $this->_taskModel->fetchByStatus("in_progress");
+        $doneTasks = $this->_taskModel->fetchByStatus("done");
     
         $this->view->pendingTasks = $pendingTasks;
         $this->view->inProgressTasks = $inProgressTasks;
@@ -115,5 +105,4 @@ class TaskController extends Controller{
         $this->view->tasks = $tasks;
         
     }
-
 }

@@ -6,64 +6,75 @@
         </form>
     </header>
     
-    <main class="g-5 flex flex-row justify-center">
+    <main class="gap-5 flex flex-col md:flex-row justify-center">
 
-        <div id="pending-column" class="flex flex-col w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
-            <h3 class="mb-3 font-bold text-gray-900 text-left">Pending</h3>
+        <div id="pending-column" class="flex flex-col w-[90%] md:w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
+            <h3 class="mb-3 font-bold text-black text-left">PENDING</h3>
             <?php 
             $pendingTasks = $this->pendingTasks; ?>
             <?php if (isset($pendingTasks) && count($pendingTasks) > 0): ?>
                 <?php foreach ($pendingTasks as $task): ?>
-                    <div class="task-item bg-white p-2 rounded shadow-md mb-2 cursor-pointer" data-id="<?php echo $task['id']; ?>" onclick="window.location.href='<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>'">
-                        <h4 class="font-medium text-gray-600"><?php echo htmlspecialchars($task['title']); ?></h4>
+                    <div class="task-item bg-white p-2 rounded shadow-md mb-2 cursor-pointer" onclick="window.location.href='<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>'">
+                        <h4 class="font-medium text-black"><?php echo htmlspecialchars($task['title']); ?></h4>
                         <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
-                        <div class="flex items-center justify-center w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
+
+                        <?php if ($_SESSION['user']->id === $task['user_id']): ?>
+                        <div class="flex items-center justify-center w-[20%] md:w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
                         <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>&status=in_progress" class="text-white m-2" >START</a>
                         </div>
+                        <?php endif; ?>
+
                     </div>  
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="text-gray-600 text-sm font-bold">No hay tareas pendientes</p>
+                <p class="text-black text-sm font-bold">Ninguna tarea pendiente</p>
             <?php endif; ?>
 
-        <form action="<?php echo $this->baseUrl(); ?>/task/add" method="post"  class="shadow-md mt-4 mb-4 rounded-lg h-[80px] p-2 bg-rose-100">
-                <input type="text" required name="new_task" placeholder="Introduzca una nueva tarea..." class="w-full text-xs bg-rose-100">
-                <button type="submit" class="text-xs w-[40%] h-[40%] bg-rose-900 text-white p-2 rounded-lg hover:bg-blue-600 mt-4 flex items-center justify-center">ADD</button>
+        <form action="<?php echo $this->baseUrl(); ?>/task/add" method="post"  class="shadow-md mt-4 mb-4 rounded-lg h-[80px] p-2 bg-white">
+                <input type="text" required name="new_task" placeholder="Introduzca una nueva tarea..." class="w-full text-xs bg-white-100">
+                <button type="submit" class="text-xs w-[20%] md:w-[40%] h-[40%] bg-blue-950 text-white p-2 rounded-lg hover:bg-blue-600 mt-4 flex items-center justify-center">ADD</button>
         </form>
     </div>
-    <div class="flex flex-col w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px]">
-        <h3 class="mb-3 font-bold text-gray-900 text-left">In progress</h3>
+    <div class="flex flex-col w-[90%] md:w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
+        <h3 class="mb-3 font-bold text-black text-left">IN-PROGRESS</h3>
         <?php 
             $inProgressTasks = $this->inProgressTasks; ?>
         <?php if (isset($inProgressTasks) && count($inProgressTasks) > 0): ?>
             <?php foreach ($inProgressTasks as $task): ?>
-                <div class="task-item bg-white p-2 rounded shadow-md mb-2 cursor-pointer" data-id="<?php echo $task['id']; ?>" onclick="window.location.href='<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>'">
-                    <h4 class="font-medium text-gray-600"><?php echo htmlspecialchars($task['title']); ?></h4>
+                <div class="task-item bg-white p-2 rounded shadow-md mb-2 cursor-pointer" onclick="window.location.href='<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>'">
+                    <h4 class="font-medium text-black"><?php echo htmlspecialchars($task['title']); ?></h4>
                     <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
-                    <div class="flex items-center justify-center w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
+                    
+                    <?php if ($_SESSION['user']->id === $task['user_id']): ?>
+                    <div class="flex items-center justify-center w-[20%] md:w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
                     <a href="<?php echo $this->baseUrl(); ?>/task/move?id=<?php echo $task['id']; ?>&status=done" class="text-white m-2" >DONE</a>
                     </div>
+                    <?php endif; ?>
+
                 </div>   
             <?php endforeach; ?>
         <?php else: ?>
-            <p class="text-gray-600 text-sm font-bold">No hay tareas en progreso de momento</p>
+            <p class="text-black text-sm font-bold">No hay tareas en progreso de momento</p>
         <?php endif; ?>
     </div>
 
 
     
-        <div class="flex flex-col w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px]">
-            <h3 class="mb-3 font-bold text-gray-900 text-left">Done</h3>
+        <div class="flex flex-col w-[90%] md:w-[30%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
+            <h3 class="mb-3 font-bold text-black text-left">DONE</h3>
             <?php 
                 $doneTasks = $this->doneTasks; ?>
             <?php if (isset($doneTasks) && count($doneTasks) > 0): ?>
                 <?php foreach ($doneTasks as $task): ?>
-                    <div class="task-item bg-white p-2 rounded shadow-md mb-2 cursor-pointer" data-id="<?php echo $task['id']; ?>" onclick="window.location.href='<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>'">
-                        <h4 class="font-medium text-gray-600"><?php echo htmlspecialchars($task['title']); ?></h4>
+                    <div class="task-item bg-white p-2 rounded shadow-md mb-2 cursor-pointer" onclick="window.location.href='<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>'">
+                        <h4 class="font-medium text-black"><?php echo htmlspecialchars($task['title']); ?></h4>
                         <p class="text-xs text-gray-500"><?php echo $task['user_name']; ?></p>
-                        <div class="flex items-center justify-center w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
+
+                        <?php if ($_SESSION['user']->id === $task['user_id']): ?>
+                        <div class="flex items-center justify-center w-[20%] md:w-[40%] h-[30%] bg-rose-900 rounded-lg mt-4 overflow-hidden items-center justify-center hover:bg-blue-600 text-xs">
                         <a href="<?php echo $this->baseUrl(); ?>/task/delete?id=<?php echo $task['id']; ?>" class="text-white m-2">DELETE</a>
                         </div>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -73,7 +84,7 @@
 
 
     </main>
-    <div class="bg-rose-900 w-[10%] rounded-lg m-4 overflow-hidden flex items-center justify-center mt-10 hover:bg-blue-600">
+    <div class="bg-rose-900 w-[20%] md:w-[10%] rounded-lg m-4 overflow-hidden flex items-center justify-center mt-10 hover:bg-blue-600">
             <a href="<?php echo $this->baseUrl(); ?>/logout" class="text-white m-2 text-xs" >LOGOUT</a>
     </div>
 
