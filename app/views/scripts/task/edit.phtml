@@ -1,0 +1,35 @@
+<div class="min-h-screen bg-cover bg-center bg-violet-200 rounded-lg overflow-hidden">
+    <header class="bg-rose-900 w-full h-10 p-2 flex flex-row justify-between">
+        <h1 class="text-xl font-bold text-white text-left w-[60%]">Task Manager</h1>
+    </header>
+    
+    <main class="g-5 flex flex-row justify-center">
+        <div id="pending-column" class="flex flex-col w-[60%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
+            <h3 class="mb-3 font-bold text-gray-900 text-left">EDIT TASK.</h3>
+            <?php 
+            $task = $this->task;
+            ?>
+
+                <form action="<?= $this->baseUrl() ?>/task/edit/<?= $this->task['id'] ?>" method="post">
+
+                <div>
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" value="<?= htmlspecialchars($this->task['title']) ?>" class="w-full p-2 border rounded-md mb-4" required>
+                </div>
+               
+
+                <div class="flex justify-between">
+                    <button type="submit" class="bg-green-600 text-white p-2 rounded-md hover:bg-green-800">Save Changes</button>
+                    <a href="<?php echo $this->baseUrl(); ?>/task/show?id=<?php echo $task['id']; ?>" class="bg-gray-500 text-white p-2 rounded-md hover:bg-gray-700">Cancel</a>
+                </div>
+            </form>
+                        
+                
+        </div>        
+    </main>
+
+    <div class="bg-rose-900 w-[10%] rounded-lg m-4 overflow-hidden flex items-center justify-center mt-10 hover:bg-blue-600">
+            <a href="<?php echo $this->baseUrl(); ?>/tasks" class="text-white m-2 text-xs" ><-Home</a>
+    </div>
+
+</div>

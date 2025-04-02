@@ -105,4 +105,50 @@ class TaskController extends Controller{
         $this->view->tasks = $tasks;
         
     }
+
+
+
+    public function editAction() {
+        $id = $this->_getParam('id');
+        
+        if (empty($id)) {
+             $_SESSION['error_message'] = "ID de tarea no proporcionado.";
+             header('Location: ' . $this->_baseUrl() . '/tasks');
+             exit;
+        }
+        $task = $this->_taskModel->fetchOne($id);
+
+        
+        if (!$task || $task['user_id'] !== $_SESSION['user']->id) {
+             $_SESSION['error_message'] = "Tarea no encontrada o no tienes permiso para editarla.";
+             header('Location: ' . $this->_baseUrl() . '/tasks');
+             exit;
+        }
+
+        if ($this->getRequest()->isPost()) {
+            $newTitle = trim($this->_getParam('title'));
+
+            
+            $updateData = [
+                'title' => $newTitle
+            ];
+
+            $result = $this->_taskModel->update($id, $updateData);
+
+            if ($result) {
+                 $_SESSION['success_message'] = "Tarea actualizada correctamente.";
+                 header('Location: ' . $this->_baseUrl() . '/tasks');
+                 exit;
+            } else {
+                 
+                 $this->view->error = 'Hubo un error al actualizar la tarea.';
+                 $this->view->task = $task; 
+                 return; 
+            }
+
+        } else {
+            $this->view->task = $task;
+        }
+    }
 }
+

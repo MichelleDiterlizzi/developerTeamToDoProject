@@ -74,4 +74,28 @@ class Task {
         });
     }
 
+    public function update($id, $updateData){
+        $taskUpdated = false;
+        foreach ($this->_data as $key => $item) {
+            if ($item['id'] == $id) { 
+                
+                foreach ($updateData as $field => $value) {
+                    
+                    if ($field !== 'id') { 
+                        $this->_data[$key][$field] = $value;
+                    }
+                }
+                $taskUpdated = true;
+                break; 
+            }
+        }
+
+        if ($taskUpdated) {
+            $this->_saveData();
+        }
+        
+        return $taskUpdated; 
+    }
+
 }
+

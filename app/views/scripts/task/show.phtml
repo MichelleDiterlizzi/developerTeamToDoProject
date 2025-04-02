@@ -2,9 +2,9 @@
     <header class="bg-rose-900 w-full h-10 p-2 flex flex-row justify-between">
         <h1 class="text-xl font-bold text-white text-left w-[60%]">Task Manager</h1>
     </header>
-    
-    <main class="g-5 flex flex-row justify-center">
-        <div id="pending-column" class="flex flex-col w-[60%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2">
+
+    <div class="flex flex-col items-center justify-center">
+        <div id="pending-column" class="flex flex-col w-[60%] bg-violet-100 m-4 p-4 rounded-lg min-h-[150px] gap-2 items-center justify-center">
             <h3 class="mb-3 font-bold text-gray-900 text-left">Task Details.</h3>
 
             <?php
@@ -28,6 +28,11 @@
                                 <a href="<?php echo $this->baseUrl(); ?>/task/delete?id=<?php echo $task['id']; ?>" class="text-white m-2 text-xs" >DELETE</a>
                             </div>
                             
+                            <div class="flex items-center justify-center w-[30%] bg-rose-900 rounded-lg overflow-hidden hover:bg-blue-600">
+                                <a href="<?= $this->baseUrl() ?>/task/edit/<?= $task['id'] ?>" title="Editar Tarea" class="text-white p-2 block w-full text-center text-xs">EDIT</a>
+                            </div>
+    
+
                 
                             <?php if ($this->task['status'] === 'pending'): ?>
                                 <div class="flex items-center justify-center w-[30%] bg-rose-900 rounded-lg overflow-hidden hover:bg-blue-600">
@@ -40,14 +45,13 @@
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>
-                        <?php endif; ?>
-                </div>
+                    <?php endif; ?>
+                    
+                    </div>
+            </div>
+        <div class="bg-rose-900 w-[10%] rounded-lg m-4 overflow-hidden flex items-center justify-center mt-10 hover:bg-blue-600">
+        <a href="<?php echo $this->baseUrl(); ?>/tasks" class="text-white m-2 text-xs" ><-Home</a>
         </div>
         
-    </main>
-
-    <div class="bg-rose-900 w-[10%] rounded-lg m-4 overflow-hidden flex items-center justify-center mt-10 hover:bg-blue-600">
-            <a href="<?php echo $this->baseUrl(); ?>/tasks" class="text-white m-2 text-xs" ><-Home</a>
-    </div>
 
 </div>
