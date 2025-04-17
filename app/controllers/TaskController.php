@@ -60,7 +60,7 @@ class TaskController extends Controller{
         $data['finished_at'] = $currentTime;
     }
     
-    $result = $this->_taskModel->save($data);
+    $result = $this->_taskModel->update($id, $data);
     
     header('Location: ' . $this->_baseUrl() . '/tasks');
     exit;

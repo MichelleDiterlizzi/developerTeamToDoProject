@@ -3,17 +3,19 @@
         "title": "Llamar el doctor",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": "in_progress",
+        "status": "done",
         "id": "67dbef8f7c699",
-        "created_at": "2025-03-21 11:05:37"
+        "created_at": "2025-03-21 11:05:37",
+        "finished_at": "2025-04-17 22:41:32"
     },
     {
         "title": "Aprender a programar",
         "user_id": "67c2f5be94e9a",
         "user_name": "Sara Garcia",
-        "status": "in_progress",
+        "status": "done",
         "id": "67dbef9363585",
-        "created_at": "2025-03-20 11:36:06"
+        "created_at": "2025-03-20 11:36:06",
+        "finished_at": "2025-04-17 22:42:57"
     },
     {
         "title": "Terminar el Sprint3",
@@ -55,12 +57,5 @@
         "user_name": "andrea castillo",
         "status": "pending",
         "id": "67ebe337d5e38"
-    },
-    {
-        "title": "Comprar los billetes de avi\u00f3nnnn",
-        "user_id": "67c2f5be94e9a",
-        "user_name": "Sara Garcia",
-        "status": "pending",
-        "id": "67ecf8460e966"
     }
 ]
