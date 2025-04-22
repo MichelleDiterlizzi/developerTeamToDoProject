@@ -9,6 +9,79 @@ Main structure of php project. Folders / files:
   - **base**
 - **web**
 
+## Description
+
+This project is a task management (TO-DO) application enabling users to create, update, delete, and list tasks. Tasks feature a status (pending, in progress, or completed), start and end times, and track the user who created them. Data persistence is handled using JSON files.
+
+## Features
+
+* New user registration.
+* Existing user login.
+* Add new tasks associated with the logged-in user.
+* List all tasks for the logged-in user.
+* Display task status (pending, in progress, completed).
+* Record start and end times for each task.
+* Track the user who created each task.
+* Update existing tasks.
+* Delete tasks.
+* Display details for a specific task.
+
+## Technologies Used
+
+* **Backend:** PHP (Version X.X or higher recommended - *specify your version*)
+* **Frontend:** HTML, Tailwind CSS
+* **Persistence:** JSON Files
+* **Architecture:** MVC (Model-View-Controller) Pattern
+* **Web Server Requirement:** Apache, Nginx, or any web server capable of running PHP.
+
+## Installation
+
+To run this project locally, you'll need a PHP development environment. Here are the general steps:
+
+### Prerequisites
+
+* **PHP:** Ensure you have PHP installed (Version X.X or higher recommended - *specify your version*).
+* **Web Server:** You need a web server (like Apache or Nginx) configured to run PHP applications.
+* **Git:** Required to clone the repository.
+* **(Optional) Composer:** If external PHP libraries were added (check for a `composer.json` file).
+
+### Setup Steps
+
+1.  **Get the Code:**
+    * Clone the repository to a location on your computer:
+        ```bash
+        git clone [Your GitHub repository URL]
+        cd [project-folder-name]
+        ```
+
+2.  **Configure Your Web Server (Crucial Step):**
+    * The core requirement is that your web server's **document root** (the public-facing directory) must point to the `web/` subdirectory *inside* the project folder you just cloned.
+    * **Goal:** Web requests (e.g., to `http://your-local-domain/`) should be handled by the `[project-folder]/web/index.php` file.
+    * **How to achieve this depends on your environment:**
+        * **Using Bundled Environments (like XAMPP, WAMP, MAMP):**
+            * *Option A (Subdirectory):* Place the `[project-folder-name]` inside the environment's main web directory (e.g., `htdocs`, `www`). You would then access the project via `http://localhost/[project-folder-name]/web/`.
+            * *Option B (Virtual Host - Recommended for cleaner URLs):* Configure a Virtual Host within your environment's Apache settings. Set the `DocumentRoot` of this Virtual Host to the full path of the `[project-folder-name]/web/` directory (e.g., `C:/path/to/your-project-name/web/`). This allows access via a custom URL like `http://todo-project.test/`. Consult your specific environment's documentation for creating Virtual Hosts.
+        * **Using Native Apache/Nginx:**
+            * You will need to configure a new Virtual Host. Edit your Apache (`httpd.conf`, `.conf` files in `sites-available`) or Nginx (`nginx.conf`, files in `sites-available`) configuration.
+            * Set the `DocumentRoot` (Apache) or `root` (Nginx) directive for the Virtual Host to the full path of the project's `web/` folder (e.g., `/var/www/your-project-name/web/`).
+            * Remember to restart your web server after making configuration changes.
+
+3.  **Configure Persistence (JSON Files):**
+    * The application saves user and task data to JSON files, expected to be in a specific directory within the project (e.g., `data/` - *verify and specify the exact path in your code*).
+    * **Very Important:** The **web server process** (e.g., `www-data`, `apache`, `nobody`) needs **write permissions** on this data directory (e.g., `data/`) and potentially the JSON files within it. The application needs this to save new users, tasks, updates, etc.
+    * Check and adjust permissions using your operating system's tools (e.g., `chmod`, `chown` on Linux/macOS, or folder Security Properties on Windows).
+    * If the data directory or initial JSON files (`users.json`, `tasks.json`) do not exist, you may need to create them manually. Empty files might need initial content like `[]` or `{}`.
+
+4.  **(Optional) Install Dependencies:**
+    * If a `composer.json` file exists in the project root, navigate to the project directory in your terminal and run:
+        ```bash
+        composer install
+        ```
+
+5.  **Start Server & Access:**
+    * Ensure your web server (Apache/Nginx, or via XAMPP/WAMP/MAMP Control Panel) is running.
+    * Open your web browser and navigate to the URL you configured in Step 2 (e.g., `http://localhost/[project-folder-name]/web/` or `http://todo-project.test/`).
+
 ### Usage
 
 The web/index.php is the heart of the system.
